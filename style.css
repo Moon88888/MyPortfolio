@@ -1,0 +1,417 @@
+body,html{
+	margin:0;
+	padding: 0;
+	font-family: arial;
+}
+.header_bottom{
+	background:rgba(0,0,0,0.6); 
+	padding: 20px 0;
+	position: sticky;
+	top: 0
+}
+.main_nav{
+	text-align: right;
+}
+.main_nav ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.main_nav ul li{
+	display: inline-block;
+	margin-left: 30px;
+}
+.main_nav ul li a{
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+}
+.footer{
+	background:#ccc;
+	text-align: center;
+	padding: 20px 0; 
+}
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content:'';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+body {
+  background: #ffffff;
+  color: rgb(15, 1, 1);
+  font: 100% Lato, Arial, Sans Serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#background-wrap {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+/* OBJECTS */
+
+.bubble {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+  -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+  
+  height: 200px;
+  position: absolute;
+  width: 200px;
+}
+
+.bubble:after {
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.5)), color-stop(70%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+  -webkit-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+  
+  content: "";
+  height: 180px;
+  left: 10px;
+  position: absolute;
+  width: 180px;
+}
+/* ANIMATIONS */
+
+.x1 {
+  -webkit-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate; 
+  left: -5%;
+  top: 5%; 
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+.x2 {
+  -webkit-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  
+  left: 5%;
+  top: 80%;
+  
+  -webkit-transform: scale(0.4);
+  -moz-transform: scale(0.4);
+  transform: scale(0.4);
+}
+
+.x3 {
+  -webkit-animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  
+  left: 10%;
+  top: 40%;
+  
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+.x4 {
+  -webkit-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  
+  left: 20%;
+  top: 0;
+  
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  transform: scale(0.3);
+}
+
+.x5 {
+  -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  
+  left: 30%;
+  top: 50%;
+  
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+.x6 {
+  -webkit-animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  
+  left: 50%;
+  top: 0;
+  
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.x7 {
+  -webkit-animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  
+  left: 65%;
+  top: 70%;
+  
+  -webkit-transform: scale(0.4);
+  -moz-transform: scale(0.4);
+  transform: scale(0.4);
+}
+
+.x8 {
+  -webkit-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+  
+  left: 80%;
+  top: 10%;
+  
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  transform: scale(0.3);
+}
+
+.x9 {
+  -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  
+  left: 90%;
+  top: 50%;
+  
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+.x10 {
+  -webkit-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  
+  left: 80%;
+  top: 80%;
+  
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  transform: scale(0.3);
+}
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateBubble {
+  0% {
+      margin-top: 1000px;
+  }
+  100% {
+      margin-top: -100%;
+  }
+}
+
+@-moz-keyframes animateBubble {
+  0% {
+      margin-top: 1000px;
+  }
+  100% {
+      margin-top: -100%;
+  }
+}
+
+@keyframes animateBubble {
+  0% {
+      margin-top: 1000px;
+  }
+  100% {
+      margin-top: -100%;
+  }
+}
+
+@-webkit-keyframes sideWays { 
+  0% { 
+      margin-left:0px;
+  }
+  100% { 
+      margin-left:50px;
+  }
+}
+
+@-moz-keyframes sideWays { 
+  0% { 
+      margin-left:0px;
+  }
+  100% { 
+      margin-left:50px;
+  }
+}
+
+@keyframes sideWays { 
+  0% { 
+      margin-left:0px;
+  }
+  100% { 
+      margin-left:50px;
+  }
+}
+
+.skills {
+  max-width: 68.75rem;
+  margin: auto;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.skill-header {
+  margin-bottom: 1rem;
+}
+
+.skills-wrapper img {
+  padding: 1.25rem;
+}
+
+.icon {
+  width: 10.875rem;
+  height: 10.25rem;
+}
+
+.icon-card {
+  
+  background: linear-gradient( #dcd3c9,
+  #ffffff);
+  border-radius: 11px;
+  box-shadow: 0 3px 10px var(--secondary-shadow);
+  padding: 20px;
+  margin: 10px;
+}
+input[type=text], select, textarea {
+  width: 50%;
+  padding: 12px; 
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #000000;
+  color: #dcd3c9;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #ffffff;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #dcd3c9;
+  padding: 20px;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
